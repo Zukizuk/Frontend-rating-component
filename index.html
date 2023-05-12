@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Frontend Mentor | Interactive rating component</title>
+  </head>
+  <body>
+    <main>
+      <div class="container rate">
+        <img src="images/icon-star.svg" alt="" />
+
+        <div class="texbox">
+          <h1>How did we do?</h1>
+          <p>
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
+        </div>
+        <div class="inputbox">
+          <input type="text" value="1" readonly />
+          <input type="text" value="2" readonly />
+          <input type="text" value="3" readonly />
+          <input type="text" value="4" readonly />
+          <input type="text" value="5" readonly />
+        </div>
+        <button>S u b m i t</button>
+      </div>
+      <div class="thanksbox">
+        <img src="images/illustration-thank-you.svg" alt="" />
+        <p class="choicetext">You selected 4 out of 5</p>
+        <h1>Thank you!</h1>
+        <p>
+          We appreciate you taking the time to give a rating. <br />If you ever
+          need more support, dont't hesitate to <br />
+          get in touch!
+        </p>
+      </div>
+    </main>
+
+    <!-- <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </footer> -->
+    <script>
+      let btn = document.querySelector("button");
+      let rbox = document.querySelector(".rate");
+      let tbox = document.querySelector(".thanksbox");
+      let choices = document.querySelectorAll("input");
+      let cvalue = document.querySelector(".choicetext");
+      let x;
+
+      for (choice of choices) {
+        choice.onclick = function () {
+          x = this.value;
+          cvalue.innerHTML = "You selected " + x + " out of 5";
+
+          btn.addEventListener("click", () => {
+            rbox.style.transform = "translateY(-105%)";
+            tbox.style.transform = "translateY(-100%)";
+          });
+        };
+      }
+    </script>
+  </body>
+</html>
